@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Analyst - Registration</title>
+    <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Bank Analyst</h1>
+        <img src="banklogo.png" alt="Bank Logo"  >
+    </div>
+    <div class="form-container">
+        <h2>Register</h2>
+        <form id="registrationForm">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="accountType">Account Type</label> 
+            <select id="accountType" name="accountType" required > 
+                <option value="">Select an account type</option>
+                <option value="savings">Savings</option>
+                <option value="current">Current</option>
+                <option value="fixed">Fixed Deposit</option>
+               
+            </select>
+            <br>
+            <br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="register">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
