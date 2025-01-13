@@ -18,6 +18,7 @@
     <div class="form-container">
         <h2>Register</h2>
         <form method="POST" action="registration.jsp">
+            <div class = "form-box">
             <label for="fullName">Full Name</label>
             <input type="text" name="fullName" id="fullName" placeholder="Enter your full name" required>
 
@@ -53,6 +54,7 @@
             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm your password" required>
 
             <button type="submit">Register</button>
+        </div>
         </form>
 
         <div class="register">
@@ -77,6 +79,23 @@
     String error = "";
 
     if (fullName != null && email != null && phone != null && dob != null && accountType != null && password != null && username != null && accountNo != null) {
+    	try {
+    		Connection conn = null;
+            PreparedStatement stmt = null;
+            ResultSet rs = null; 
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankAnalyst", "root", "Anita123@");
+            PreparedStatement pst2 = conn.prepareStatement("SELECT * FROM BlacklistedAccounts WHERE IDNo = ?");
+            pst2.setString(1, idNo);
+            ResultSet r = pst2.executeQuery();
+            if (r.next()) {
+                condition = false;
+                error = "You are Blacklisted";
+                out.println("<script>alert('" + error + "'); window.location='registration.jsp';</script>");
+                return; // Stop execution here if blacklisted
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         if (phone != null && phone.length() != 10) {
             condition = false;
@@ -92,14 +111,14 @@
             condition = false;
             error = "Passwords do not match.";
         }
-
+        
+        
         if (condition) {
-            Connection conn = null;
+        	Connection conn = null;
             PreparedStatement stmt = null;
             ResultSet rs = null; 
-
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
+            	
                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankAnalyst", "root", "Anita123@");
                 String existingEmail = "SELECT * FROM Users WHERE Email=?";
                 stmt = conn.prepareStatement(existingEmail);
@@ -110,6 +129,7 @@
                     condition = false;
                     error = "An account with this email ID already exists.";
                 }
+                
 
                 if (condition) {
                     String sql = "INSERT INTO Users (UserID, Name, Email, MobileNo, DOB, accountType, IDNo, Password, AccountNumber) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)";
