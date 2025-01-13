@@ -99,6 +99,11 @@ if (request.getMethod().equals("POST")) {
         try { if (rs != null) rs.close(); } catch (SQLException e) { e.printStackTrace(); }
         try { if (pst != null) pst.close(); } catch (SQLException e) { e.printStackTrace(); }
         try { if (conn != null) conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+        
+    }
+    if (!result.isEmpty()) {
+        
+        out.println("<script>alert('" + result + "');</script>");
     }
 }
 %>
@@ -131,7 +136,7 @@ if (request.getMethod().equals("POST")) {
             <button type="submit">Submit</button>
         </form>
 
-        <p><%= result %></p>
+       
     </div>
 </div>
 
