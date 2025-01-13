@@ -17,14 +17,21 @@
     </div>
     <div class="form-container">
         <h2>Login</h2>
-        <form method="POST" action="login.jsp">
+        <form id ="loginForm" method="POST" action="login.jsp">
+            <div class = "form-box">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" placeholder="Enter your username" required>
 
             <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="Enter your password" required>
 
+             <div class="forgot-password">
+                <a href="passwordRecovery.jsp" id="forgotPasswordLink">Forgot Password?</a>
+            </div>
+           </div>
+
             <button type="submit">Login</button>
+        
         </form>
 
         <div class="register">
@@ -34,7 +41,7 @@
 </div>
 
 <%
-    // Processing login form data and database authentication
+   
     String username = request.getParameter("username");
     String password = request.getParameter("password");
 
@@ -46,15 +53,16 @@
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/BankAnalyst", "root","Anita123@");
-            String sql = "SELECT * FROM Users WHERE Email = ? AND Password = ?";
+            String sql = "SELECT * FROM Users WHERE UserID = ? AND Password = ?";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
             stmt.setString(2, password);
 
             rs = stmt.executeQuery();
             if (rs.next()) {
-                // If user is found, redirect to dashboard or another page
-                response.sendRedirect("dashboard.jsp");
+            	HttpSession sessions = request.getSession();
+            	sessions.setAttribute("userid",username );
+                response.sendRedirect("home.jsp");
             } else {
                 out.println("<script>alert('Invalid credentials!');</script>");
             }
