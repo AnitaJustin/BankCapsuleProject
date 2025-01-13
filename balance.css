@@ -1,0 +1,131 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d6e6f2;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #5D88BB;
+    color: #fff;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+}
+
+header nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+main {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.balance-section {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 30px;
+}
+
+.balance-info, .cibil-info {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 45%;
+}
+
+.balance-info h2, .cibil-info h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.balance-info .amount, .cibil-info .score {
+    font-size: 36px;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.transactions {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.transactions h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.transactions table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.transactions th, .transactions td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.transactions th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.transactions tr:hover {
+    background-color: #f9f9f9;
+}
+
+footer {
+    background-color: #5D88BB;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}

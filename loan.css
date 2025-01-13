@@ -1,0 +1,135 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+} 
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d6e6f2;
+    color: #000;
+    line-height: 1.6;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #007BFF;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
+
+.logo h2 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fef7f7;
+    font-weight: 500;
+}
+
+nav a:hover {
+    
+    color: #000;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 8px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    width: 200px;
+}
+
+.search-icon {
+    margin-left: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #007BFF;
+}
+
+.loan-container {
+    margin-top: 100px;
+    background-color: #B7D0E1;
+    padding: 30px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.loan-container h1 {
+    font-size: 32px;
+    color: #194569;
+    margin-bottom: 20px;
+}
+
+.loan-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.loan-container input,
+.loan-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #5F84A2;
+    border-radius: 5px;
+}
+
+.loan-container button {
+    padding: 10px 20px;
+    background-color: #194569;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.loan-container button:hover {
+    background-color: #123456;
+}
+
+#result {
+    margin-top: 20px;
+    background-color: #91AEC4;
+    padding: 15px;
+    border-radius: 5px;
+    color: #194569;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
